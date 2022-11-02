@@ -1,0 +1,58 @@
+WARMUP
+import requests # you need this module to make an API call
+import pandas as pd
+
+api_url = "http://api.open-notify.org/astros.json" # this url gives use the astronaut data
+
+response = requests.get(api_url) # Call the API using the get method and store the
+                                # output of the API call in a variable called response.
+                                
+if response.ok:             # if all is well() no errors, no network timeouts)
+    data = response.json()  # store the result in json format in a variable called data
+                            # the variable data is of type dictionary.
+                            
+print(data)   # print the data just to check the output or for debugging
+
+Print the number of astronauts currently on ISS.
+print(data.get('number'))
+
+astronauts = data.get('people')
+print("There are {} astronauts on ISS".format(len(astronauts)))
+print("And their names are :")
+for astronaut in astronauts:
+    print(astronaut.get('name'))
+    
+    Lab: Collect Jobs Data using Jobs API
+Objective: Determine the number of jobs currently open for various technologies and for various locations
+Collect the number of job postings for the following locations using the API:
+
+Los Angeles
+New York
+San Francisco
+Washington DC
+Seattle
+Austin
+Detroit
+
+#Import required libraries
+import pandas as pd
+import json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
