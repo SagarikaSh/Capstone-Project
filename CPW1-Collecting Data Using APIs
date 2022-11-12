@@ -37,6 +37,26 @@ Detroit
 #Import required libraries
 import pandas as pd
 import json
+import requests
+
+api_url="http://127.0.0.1:5000/data"
+def get_number_of_jobs_T(technology):
+    response = requests.get(api_url, params= {'Key Skills':technology});
+    json_data_object = json.loads(response.content);
+    return technology, len(json_data_object)
+    
+    Calling the function for Python and checking if it works.
+
+get_number_of_jobs_T("Python")
+('Python', 1173)
+Write a function to find number of jobs in US for a location of your choice
+def get_number_of_jobs_L(location):
+    response = requests.get(api_url, params= {'Location':location});
+    json_data_object = json.loads(response.content);
+    return location,len(json_data_object)
+Call the function for Los Angeles and check if it is working.
+
+
 
 
 
